@@ -1,5 +1,5 @@
 # Open Clustertruck Timer
-Clustertruck automated neural network timing for speedrunning. This chrome extension is primarily to be used by moderators and runners who want to time their own runs.
+Clustertruck automated timing for speedrunning using a neural network. This chrome extension is primarily to be used by moderators and runners who want to time their own runs.
 
 ## Credits
 Thank you for [Noahkra](https://github.com/noahkra) for providing the initial code and information on how to set up the neural network working. Without Noah's research and efforts this would not have been possible.
