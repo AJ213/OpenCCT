@@ -4,7 +4,31 @@
   "version": "1.0",
   "manifest_version": 3,
   "background": {
-    "service_worker": "test.js"
+    "service_worker": "Source/Javascript/test.js"
   },
-    "permissions": ["storage"]
+  "permissions": [
+  
+  "storage",
+  "tabs"
+  ],
+  "host_permissions": [
+    "*://www.youtube.com/watch*",
+    "*://www.twitch.tv/videos/*"
+  ],
+
+  "action": {
+    "default_icon": {
+      "16": "/Images/Icon/truck_icon48dp.png",
+      "32": "/Images/Icon/truck_icon48dp.png",
+      "48": "/Images/Icon/truck_icon48dp.png",
+      "128": "/Images/Icon/truck_icon48dp.png"
+    }
+  },
+
+  "icons": {
+      "16": "/Images/Icon/truck_icon48dp.png",
+      "32": "/Images/Icon/truck_icon48dp.png",
+      "48": "/Images/Icon/truck_icon48dp.png",
+      "128": "/Images/Icon/truck_icon48dp.png"
+  }
 }
