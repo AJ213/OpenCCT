@@ -1,6 +1,53 @@
-// Code by Noahkra https://github.com/noahkra
+import brain from "./brain.js";
 
-/*let latestCallback, latestFramelog, net, training = [], times = [];
+init();
+
+let video;
+
+async function init() {
+	video = await getVideoElement();
+
+	video.pause();
+}
+
+function getVideoElement() {
+	return new Promise((resolve, reject) => {
+		(function waitForVideo() {
+			let video = document.querySelector("video");
+			if (video) { return resolve(video); }
+			setTimeout(waitForVideo, 10);
+		})();
+	});
+}
+
+let enableButton = document.getElementById("enableButton");
+let enabled;
+
+chrome.storage.sync.get("enabled", function(enabledLocal) {
+    if(enabledLocal != undefined){
+        enabled = enabledLocal["enabled"];
+        changeColor(enabledLocal["enabled"]);
+    }
+    enabled = false;
+});
+function changeColor(enabledLocal){
+    if(enabledLocal){
+        enableButton.style.backgroundColor = "#454B1B";
+    }else{
+        enableButton.style.backgroundColor = "#DC143C";
+    }
+}
+
+enableButton.addEventListener("click", async () => {
+    enabled = !enabled;
+    chrome.storage.sync.set({"enabled" : enabled})
+    changeColor(enabled);
+	if(enabled){
+		analyseVideo();
+	}
+});
+
+let latestCallback, latestFramelog, net, training = [], times = [];
 let handleScreenshot = (screenshot, desired) => {
 	if (analyseFrame(screenshot) === desired) {
 		return true;
@@ -123,4 +170,4 @@ function load(stringified) {
 	net.fromJSON(netJSON);
 	training = trainingArr;
 }
-s.onload = () => net = new brain.NeuralNetwork();*/
+s.onload = () => net = new brain.NeuralNetwork();

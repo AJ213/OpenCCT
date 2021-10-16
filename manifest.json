@@ -3,20 +3,30 @@
   "description": "Clustertruck timing application for speedrunning",
   "version": "1.0",
   "manifest_version": 3,
-  "background": {
-    "service_worker": "Source/Javascript/test.js"
-  },
   "permissions": [
-  
   "storage",
+  "activeTab", 
+  "scripting",
   "tabs"
   ],
   "host_permissions": [
     "*://www.youtube.com/watch*",
     "*://www.twitch.tv/videos/*"
   ],
+  "options_page": "Source/UI/options.html",
+
+
+  "content_scripts":[
+    {
+      "matches": ["https://www.youtube.com/watch*", "*://www.twitch.tv/videos/*"],
+      "js": ["Source/Neural Network/background.js"],
+		  "run_at": "document_end"
+    }
+  ],
+
 
   "action": {
+    "default_popup": "Source/Neural Network/popup.html",
     "default_icon": {
       "16": "/Images/Icon/truck_icon48dp.png",
       "32": "/Images/Icon/truck_icon48dp.png",
